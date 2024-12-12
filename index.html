@@ -1,117 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Registration Form</title>
- <style>
- body {
- font-family: Arial, sans-serif;
- background-color: #f4f4f4;
- padding: 20px;
- }
- h1 {
- color: #333;
- text-align: center;
- }
- table {
- margin: 0 auto;
- padding: 20px;
- width: 50%;
- background-color: #fff;
- 
- }
- th, td {
- padding: 10px;
- text-align: left;
- }
- th {
- color: #333;
- font-size: 18px;
- }
- td input[type="text"],
- td input[type="email"],
- td input[type="password"],
- td input[type="date"],
- td select {
- width: 100%;
- padding: 8px;
- font-size: 16px;
- background-color: #e6f7ff;
- border: 1px solid #ccc;
- border-radius: 4px;
- }
- td input[type="radio"],
- td input[type="checkbox"] {
- margin-right: 10px;
- }
- td input[type="submit"] {
- width: 100%;
- padding: 10px;
- font-size: 18px;
- background-color: #28a745;
- color: #fff;
- border-radius: 10px;
- cursor: pointer;
- }
- td input[type="submit"]:hover {
- background-color: #218838;
- }
- </style>
+    <meta charset="UTF-8">
+    <title>Online Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .registration-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        #submitBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        #submitBtn:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e7f3fe;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
- <h1>Registration Form</h1>
- <form action="#" method="post">
- <table>
- <tr>
- <th>First Name:</th>
- <td><input type="text" name="firstname" placeholder="Enter your first 
-name"></td>
- </tr>
- <tr>
- <th>Last Name:</th>
- <td><input type="text" name="lastname" placeholder="Enter your last 
-name"></td>
- </tr>
- <tr>
- <th>Email:</th>
- <td><input type="email" name="email" placeholder="Enter your email"></td>
- </tr>
+    <div class="registration-form">
+        <h2>Online Registration Form</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="18" max="100" required>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <button type="submit" id="submitBtn">Submit Registration</button>
+        </form>
+        <div id="result"></div>
+    </div>
 
-    <tr>
-    <th>Date of Birth:</th>
-    <td><input type="date" name="dob"></td>
-    </tr>
- <th>Gender:</th>
- <td>
- <input type="radio" name="gender" value="male"> Male 
- <input type="radio" name="gender" value="female"> Female 
- </td>
- </tr>
- <tr>
- <th>Hobbies:</th>
- <td>
- <input type="checkbox" name="hobby1" value="reading"> Reading 
- <input type="checkbox" name="hobby2" value="sports"> Sports 
- <input type="checkbox" name="hobby3" value="music"> Music 
- </td>
- </tr>
- <tr>
- <th>Country:</th>
- <td>
- <select name="country">
- <option value="">Select Country</option>
- <option value="india">INDIA</option>
- <option value="bhutan">BHUTAN</option>
- <option value="uk">UK</option>
- </select>
- </td>
- </tr>
- <tr>
- <th></th>
- <td><input type="submit" value="Register"></td>
- </tr>
- </table>
- </form>
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Client-side validation
+            if (!this.checkValidity()) {
+                this.reportValidity();
+                return;
+            }
+
+            // Collect form data
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value
+            };
+
+            // Display result (since no server-side processing)
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <h3>Registration Details</h3>
+                <p><strong>Name:</strong> ${formData.fullName}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+                <p><strong>Phone:</strong> ${formData.phone}</p>
+                <p><strong>Age:</strong> ${formData.age}</p>
+                <p><strong>Gender:</strong> ${formData.gender}</p>
+            `;
+            resultDiv.style.color = 'green';
+        });
+    </script>
 </body>
 </html>
