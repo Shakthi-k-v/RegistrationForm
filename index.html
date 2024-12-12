@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Registration Form</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f4f4f4;
+ padding: 20px;
+ }
+ h1 {
+ color: #333;
+ text-align: center;
+ }
+ table {
+ margin: 0 auto;
+ padding: 20px;
+ width: 50%;
+ background-color: #fff;
+ 
+ }
+ th, td {
+ padding: 10px;
+ text-align: left;
+ }
+ th {
+ color: #333;
+ font-size: 18px;
+ }
+ td input[type="text"],
+ td input[type="email"],
+ td input[type="password"],
+ td input[type="date"],
+ td select {
+ width: 100%;
+ padding: 8px;
+ font-size: 16px;
+ background-color: #e6f7ff;
+ border: 1px solid #ccc;
+ border-radius: 4px;
+ }
+ td input[type="radio"],
+ td input[type="checkbox"] {
+ margin-right: 10px;
+ }
+ td input[type="submit"] {
+ width: 100%;
+ padding: 10px;
+ font-size: 18px;
+ background-color: #28a745;
+ color: #fff;
+ border-radius: 10px;
+ cursor: pointer;
+ }
+ td input[type="submit"]:hover {
+ background-color: #218838;
+ }
+ </style>
+</head>
+<body>
+ <h1>Registration Form</h1>
+ <form action="#" method="post">
+ <table>
+ <tr>
+ <th>First Name:</th>
+ <td><input type="text" name="firstname" placeholder="Enter your first 
+name"></td>
+ </tr>
+ <tr>
+ <th>Last Name:</th>
+ <td><input type="text" name="lastname" placeholder="Enter your last 
+name"></td>
+ </tr>
+ <tr>
+ <th>Email:</th>
+ <td><input type="email" name="email" placeholder="Enter your email"></td>
+ </tr>
+
+    <tr>
+    <th>Date of Birth:</th>
+    <td><input type="date" name="dob"></td>
+    </tr>
+ <th>Gender:</th>
+ <td>
+ <input type="radio" name="gender" value="male"> Male 
+ <input type="radio" name="gender" value="female"> Female 
+ </td>
+ </tr>
+ <tr>
+ <th>Hobbies:</th>
+ <td>
+ <input type="checkbox" name="hobby1" value="reading"> Reading 
+ <input type="checkbox" name="hobby2" value="sports"> Sports 
+ <input type="checkbox" name="hobby3" value="music"> Music 
+ </td>
+ </tr>
+ <tr>
+ <th>Country:</th>
+ <td>
+ <select name="country">
+ <option value="">Select Country</option>
+ <option value="india">INDIA</option>
+ <option value="bhutan">BHUTAN</option>
+ <option value="uk">UK</option>
+ </select>
+ </td>
+ </tr>
+ <tr>
+ <th></th>
+ <td><input type="submit" value="Register"></td>
+ </tr>
+ </table>
+ </form>
+</body>
+</html>
